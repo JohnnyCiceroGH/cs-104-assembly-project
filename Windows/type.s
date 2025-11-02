@@ -57,7 +57,7 @@ main:				# Start of the main function
 	# How did we say to do that in class?
 	# The second argument is always put into the rsi register
 
-	move rsi, 0
+	mov rsi, 0
 
 	mov	rax, 2		# Put 2 (open) into function number
 	syscall			# Call open with 2 arguments
@@ -100,9 +100,12 @@ loop:				# Start of the loop function
 	mov rdi, rdx
 	# Next, we put the value of rsp into the second argument. 
 
+	mov rsi, rbx
+	
 	# Finally, we put 1 into rdx. The rdx register is always the
 	# third argument for a function.
 
+	mov rdx, 1
 	mov	rax, 0		# Put 0 (read) into function number
 	syscall			# Call read with 3 arguments
 
@@ -113,6 +116,9 @@ loop:				# Start of the loop function
 	# If it is less than 0, we should go to the error function
 	# because it means something bad happened.
 
+	cmp rax, 0
+	je done
+	jl error
 	# After we read in a letter, we need to put that letter on
 	# the screen.
 	# To do that: put 1 in the first argument, put the value of
