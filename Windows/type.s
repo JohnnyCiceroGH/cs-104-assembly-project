@@ -97,10 +97,10 @@ loop:				# Start of the loop function
 	# into the first argument for read.
 
 
-	mov rdi, rdx
+	mov rdi, rbx
 	# Next, we put the value of rsp into the second argument. 
 
-	mov rsi, rbx
+	mov rsi, rsp
 	
 	# Finally, we put 1 into rdx. The rdx register is always the
 	# third argument for a function.
