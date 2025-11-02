@@ -46,7 +46,9 @@ main:				# Start of the main function
 	# Let's start by checking to see if we have 2 arguments
 	# The number of arguments we have lives in register rdi
 	# If we don't have exactly 2 arguments, go to the error function
-
+	cmp rdi, 2
+	jne error
+	
 	mov	rdi, [rsi + 8]	# Get file name to open
 
 	# The line above puts the file name in the first argument
@@ -66,10 +68,15 @@ main:				# Start of the main function
 	# Whenever a function gives you back a number, that number will
 	# live in the rax register.
 
+	cmp rax, 0
+	jl error
+
 	# Now, we should save the number the open function gave back to us
 	# Let's save it to the rbx register (for reasons outside this
 	# class, it needs to be the rbx register; come talk to me
 	# during office hours if you are curious why).
+
+	mov rbx, rax
 
 	# The last sub-problem to solve in the main function is to give
 	# ourselves some space to store the letters we read from the file.
