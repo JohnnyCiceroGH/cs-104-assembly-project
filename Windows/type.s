@@ -148,7 +148,8 @@ loop:				# Start of the loop function
 done:				# Start of the done function
 	# Here, put 0 into the first argument
 	# If a program exits with 0, that means it was successful
-
+	add rsp, 1
+	mov rdi, 0
 	mov	rax, 60		# Put 60 (exit) into function number
 	syscall			# Call exit with an argument of 0
 error:				# Start of the error function
