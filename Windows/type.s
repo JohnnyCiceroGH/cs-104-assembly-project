@@ -88,6 +88,8 @@ main:				# Start of the main function
 	# How many bytes do we need to store one ASCII character? Give
 	# yourself at least that many bytes of storage space.
 
+	sub rsp, 1
+
 loop:				# Start of the loop function
 	# The loop function is where all the real work happens.
 
