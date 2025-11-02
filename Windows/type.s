@@ -96,6 +96,8 @@ loop:				# Start of the loop function
 	# The first sub-problem is putting the value we saved to rbx
 	# into the first argument for read.
 
+
+	mov rdi, rdx
 	# Next, we put the value of rsp into the second argument. 
 
 	# Finally, we put 1 into rdx. The rdx register is always the
